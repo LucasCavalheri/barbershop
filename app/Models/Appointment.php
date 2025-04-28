@@ -12,7 +12,6 @@ class Appointment extends Model
 
     protected $fillable = [
         'client_id',
-        'employee_id', // ALTERADO de barber_id para employee_id
         'barbershop_id',
         'service_id',
         'start_time',
@@ -25,7 +24,6 @@ class Appointment extends Model
         return [
             'id' => 'integer',
             'client_id' => 'integer',
-            'employee_id' => 'integer', // ALTERADO também aqui
             'barbershop_id' => 'integer',
             'service_id' => 'integer',
             'start_time' => 'datetime',
@@ -36,11 +34,6 @@ class Appointment extends Model
     public function client(): BelongsTo
     {
         return $this->belongsTo(User::class, 'client_id');
-    }
-
-    public function employee(): BelongsTo
-    {
-        return $this->belongsTo(Employee::class, 'employee_id'); // ALTERADO aqui
     }
 
     public function barbershop(): BelongsTo

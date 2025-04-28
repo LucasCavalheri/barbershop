@@ -51,9 +51,4 @@ class User extends Authenticatable
     {
         return $this->hasMany(Barbershop::class, 'user_id');
     }
-
-    public function workingBarbershops(): BelongsToMany
-    {
-        return $this->belongsToMany(Barbershop::class, 'barbershop_barber', 'barber_id', 'barbershop_id');
-    }
 }

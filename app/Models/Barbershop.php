@@ -42,11 +42,6 @@ class Barbershop extends Model
         return $this->belongsTo(User::class, 'user_id');
     }
 
-    public function employees(): HasMany
-    {
-        return $this->hasMany(Employee::class);
-    }
-
     public function services(): HasMany
     {
         return $this->hasMany(Service::class);
