@@ -13,13 +13,13 @@ return new class extends Migration
     {
         Schema::create('appointments', function (Blueprint $table) {
             $table->id();
-            $table->foreignId('client_id')->constrained('users');
-            $table->foreignId('barber_id')->constrained('users');
-            $table->foreignId('barbershop_id')->constrained();
-            $table->foreignId('service_id')->constrained();
-            $table->dateTime('start_time');
-            $table->dateTime('end_time');
-            $table->enum('status', ["pending", "confirmed", "canceled"]);
+            $table->foreignId('client_id')->constrained('users')->cascadeOnDelete();
+            $table->foreignId('barber_id')->constrained('users')->cascadeOnDelete();
+            $table->foreignId('barbershop_id')->constrained()->cascadeOnDelete();
+            $table->foreignId('service_id')->constrained()->cascadeOnDelete();
+            $table->timestamp('start_time');
+            $table->timestamp('end_time');
+            $table->enum('status', ['pending', 'confirmed', 'canceled'])->default('pending');
             $table->timestamps();
         });
     }

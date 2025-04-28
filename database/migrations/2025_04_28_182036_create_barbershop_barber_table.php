@@ -11,12 +11,10 @@ return new class extends Migration
      */
     public function up(): void
     {
-        Schema::create('barbershops', function (Blueprint $table) {
+        Schema::create('barbershop_barber', function (Blueprint $table) {
             $table->id();
-            $table->foreignId('user_id')->constrained()->cascadeOnDelete();
-            $table->string('name');
-            $table->string('address');
-            $table->json('phones');
+            $table->foreignId('barbershop_id')->constrained()->cascadeOnDelete();
+            $table->foreignId('barber_id')->constrained('users')->cascadeOnDelete();
             $table->timestamps();
         });
     }
@@ -26,6 +24,6 @@ return new class extends Migration
      */
     public function down(): void
     {
-        Schema::dropIfExists('barbershops');
+        Schema::dropIfExists('barbershop_barber');
     }
 };

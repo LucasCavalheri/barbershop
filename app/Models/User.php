@@ -3,6 +3,7 @@
 namespace App\Models;
 
 use Illuminate\Database\Eloquent\Factories\HasFactory;
+use Illuminate\Database\Eloquent\Relations\BelongsToMany;
 use Illuminate\Foundation\Auth\User as Authenticatable;
 use Illuminate\Database\Eloquent\Relations\HasMany;
 use Laravel\Sanctum\HasApiTokens;
@@ -46,8 +47,13 @@ class User extends Authenticatable
         ];
     }
 
-    public function barbershops(): HasMany
+    public function ownedBarbershops(): HasMany
     {
-        return $this->hasMany(Barbershop::class);
+        return $this->hasMany(Barbershop::class, 'user_id');
+    }
+
+    public function workingBarbershops(): BelongsToMany
+    {
+        return $this->belongsToMany(Barbershop::class, 'barbershop_barber', 'barber_id', 'barbershop_id');
     }
 }

@@ -21,6 +21,7 @@ class Service extends Model
         'name',
         'duration',
         'price',
+        'description',
     ];
 
     /**

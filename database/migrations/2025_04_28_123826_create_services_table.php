@@ -13,10 +13,11 @@ return new class extends Migration
     {
         Schema::create('services', function (Blueprint $table) {
             $table->id();
-            $table->foreignId('barbershop_id')->constrained();
+            $table->foreignId('barbershop_id')->constrained()->cascadeOnDelete();
             $table->string('name');
             $table->integer('duration');
-            $table->decimal('price');
+            $table->decimal('price', 8, 2);
+            $table->text('description', 8, 2)->nullable();
             $table->timestamps();
         });
     }

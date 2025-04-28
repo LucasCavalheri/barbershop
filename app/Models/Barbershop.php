@@ -5,6 +5,7 @@ namespace App\Models;
 use Illuminate\Database\Eloquent\Factories\HasFactory;
 use Illuminate\Database\Eloquent\Model;
 use Illuminate\Database\Eloquent\Relations\BelongsTo;
+use Illuminate\Database\Eloquent\Relations\BelongsToMany;
 use Illuminate\Database\Eloquent\Relations\HasMany;
 
 class Barbershop extends Model
@@ -36,9 +37,14 @@ class Barbershop extends Model
         ];
     }
 
-    public function user(): BelongsTo
+    public function owner(): BelongsTo
     {
-        return $this->belongsTo(User::class);
+        return $this->belongsTo(User::class, 'user_id');
+    }
+
+    public function barbers(): BelongsToMany
+    {
+        return $this->belongsToMany(User::class, 'barbershop_barber', 'barbershop_id', 'barber_id');
     }
 
     public function services(): HasMany
