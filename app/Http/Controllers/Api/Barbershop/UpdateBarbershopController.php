@@ -13,11 +13,7 @@ class UpdateBarbershopController extends Controller
 {
     public function __invoke(UpdateBarbershopRequest $request, string $id)
     {
-        $barbershop = Barbershop::find($id);
-
-        if (!$barbershop) {
-            return $this->error('Barbearia não encontrada', Response::HTTP_NOT_FOUND);
-        }
+        $barbershop = $this->findOrFailWithError(Barbershop::class, $id, 'Barbearia não encontrada');
 
         $userCanUpdate = Gate::inspect('update', $barbershop);
 

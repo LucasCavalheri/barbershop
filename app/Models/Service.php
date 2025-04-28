@@ -11,11 +11,6 @@ class Service extends Model
 {
     use HasFactory;
 
-    /**
-     * The attributes that are mass assignable.
-     *
-     * @var array
-     */
     protected $fillable = [
         'barbershop_id',
         'name',
@@ -24,17 +19,12 @@ class Service extends Model
         'description',
     ];
 
-    /**
-     * Get the attributes that should be cast.
-     *
-     * @return array<string, string>
-     */
     protected function casts(): array
     {
         return [
             'id' => 'integer',
             'barbershop_id' => 'integer',
-            'price' => 'decimal',
+            'price' => 'decimal:2',
         ];
     }
 

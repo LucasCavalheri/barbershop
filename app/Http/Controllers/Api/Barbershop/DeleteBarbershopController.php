@@ -12,11 +12,7 @@ class DeleteBarbershopController extends Controller
 {
     public function __invoke(string $id)
     {
-        $barbershop = Barbershop::find($id);
-
-        if (!$barbershop) {
-            return $this->error('Barbearia não encontrada', Response::HTTP_NOT_FOUND);
-        }
+        $barbershop = $this->findOrFailWithError(Barbershop::class, $id, 'Barbearia não encontrada');
 
         $userCanDelete = Gate::inspect('delete', $barbershop);
 

@@ -10,14 +10,9 @@ class Appointment extends Model
 {
     use HasFactory;
 
-    /**
-     * The attributes that are mass assignable.
-     *
-     * @var array
-     */
     protected $fillable = [
         'client_id',
-        'barber_id',
+        'employee_id', // ALTERADO de barber_id para employee_id
         'barbershop_id',
         'service_id',
         'start_time',
@@ -25,17 +20,12 @@ class Appointment extends Model
         'status',
     ];
 
-    /**
-     * Get the attributes that should be cast.
-     *
-     * @return array<string, string>
-     */
     protected function casts(): array
     {
         return [
             'id' => 'integer',
             'client_id' => 'integer',
-            'barber_id' => 'integer',
+            'employee_id' => 'integer', // ALTERADO também aqui
             'barbershop_id' => 'integer',
             'service_id' => 'integer',
             'start_time' => 'datetime',
@@ -48,9 +38,9 @@ class Appointment extends Model
         return $this->belongsTo(User::class, 'client_id');
     }
 
-    public function barber(): BelongsTo
+    public function employee(): BelongsTo
     {
-        return $this->belongsTo(User::class, 'barber_id');
+        return $this->belongsTo(Employee::class, 'employee_id'); // ALTERADO aqui
     }
 
     public function barbershop(): BelongsTo
