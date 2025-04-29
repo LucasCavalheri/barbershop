@@ -11,14 +11,12 @@ return new class extends Migration
      */
     public function up(): void
     {
-        Schema::create('appointments', function (Blueprint $table) {
+        Schema::create('barbershop_opening_hours', function (Blueprint $table) {
             $table->id();
-            $table->foreignId('user_id')->constrained()->cascadeOnDelete();
             $table->foreignId('barbershop_id')->constrained()->cascadeOnDelete();
-            $table->foreignId('service_id')->constrained()->cascadeOnDelete();
-            $table->timestamp('start_time');
-            $table->timestamp('end_time');
-            $table->enum('status', ['pending', 'confirmed', 'canceled'])->default('pending');
+            $table->unsignedTinyInteger('day_of_week'); // 0 = Domingo, 6 = Sábado
+            $table->time('opens_at');
+            $table->time('closes_at');
             $table->timestamps();
         });
     }
@@ -28,6 +26,6 @@ return new class extends Migration
      */
     public function down(): void
     {
-        Schema::dropIfExists('appointments');
+        Schema::dropIfExists('barbershop_opening_hours');
     }
 };

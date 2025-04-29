@@ -11,7 +11,7 @@ class Appointment extends Model
     use HasFactory;
 
     protected $fillable = [
-        'client_id',
+        'user_id',
         'barbershop_id',
         'service_id',
         'start_time',
@@ -23,7 +23,7 @@ class Appointment extends Model
     {
         return [
             'id' => 'integer',
-            'client_id' => 'integer',
+            'user_id' => 'integer',
             'barbershop_id' => 'integer',
             'service_id' => 'integer',
             'start_time' => 'datetime',
@@ -33,7 +33,7 @@ class Appointment extends Model
 
     public function client(): BelongsTo
     {
-        return $this->belongsTo(User::class, 'client_id');
+        return $this->belongsTo(User::class);
     }
 
     public function barbershop(): BelongsTo
