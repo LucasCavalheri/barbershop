@@ -1,61 +1,165 @@
-<p align="center"><a href="https://laravel.com" target="_blank"><img src="https://raw.githubusercontent.com/laravel/art/master/logo-lockup/5%20SVG/2%20CMYK/1%20Full%20Color/laravel-logolockup-cmyk-red.svg" width="400" alt="Laravel Logo"></a></p>
 
-<p align="center">
-<a href="https://github.com/laravel/framework/actions"><img src="https://github.com/laravel/framework/workflows/tests/badge.svg" alt="Build Status"></a>
-<a href="https://packagist.org/packages/laravel/framework"><img src="https://img.shields.io/packagist/dt/laravel/framework" alt="Total Downloads"></a>
-<a href="https://packagist.org/packages/laravel/framework"><img src="https://img.shields.io/packagist/v/laravel/framework" alt="Latest Stable Version"></a>
-<a href="https://packagist.org/packages/laravel/framework"><img src="https://img.shields.io/packagist/l/laravel/framework" alt="License"></a>
-</p>
+# 💈 **Barbershop API**
 
-## About Laravel
+Uma API robusta para um sistema de gerenciamento de barbearias. Com ela, você pode gerenciar agendamentos, serviços, horários de funcionamento e muito mais! 🚀
 
-Laravel is a web application framework with expressive, elegant syntax. We believe development must be an enjoyable and creative experience to be truly fulfilling. Laravel takes the pain out of development by easing common tasks used in many web projects, such as:
+---
 
-- [Simple, fast routing engine](https://laravel.com/docs/routing).
-- [Powerful dependency injection container](https://laravel.com/docs/container).
-- Multiple back-ends for [session](https://laravel.com/docs/session) and [cache](https://laravel.com/docs/cache) storage.
-- Expressive, intuitive [database ORM](https://laravel.com/docs/eloquent).
-- Database agnostic [schema migrations](https://laravel.com/docs/migrations).
-- [Robust background job processing](https://laravel.com/docs/queues).
-- [Real-time event broadcasting](https://laravel.com/docs/broadcasting).
+## 📋 Sobre o Projeto
 
-Laravel is accessible, powerful, and provides tools required for large, robust applications.
+A **Barbershop API** é uma API para um sistema de agendamento de barbearias. Através dela, clientes podem agendar serviços, visualizar disponibilidade e consultar informações sobre os serviços da barbearia. Os donos de barbearias podem gerenciar os horários de funcionamento, serviços e agendamentos de forma fácil e rápida. A API também integra autenticação segura usando **Laravel Sanctum** e permite que os donos da barbearia configurem os horários de funcionamento de forma eficiente.
 
-## Learning Laravel
+## ✨ Funcionalidades
 
-Laravel has the most extensive and thorough [documentation](https://laravel.com/docs) and video tutorial library of all modern web application frameworks, making it a breeze to get started with the framework.
+Aqui estão as principais funcionalidades da API:
 
-You may also try the [Laravel Bootcamp](https://bootcamp.laravel.com), where you will be guided through building a modern Laravel application from scratch.
+- **👤 Gerenciamento de Usuários**
 
-If you don't feel like reading, [Laracasts](https://laracasts.com) can help. Laracasts contains thousands of video tutorials on a range of topics including Laravel, modern PHP, unit testing, and JavaScript. Boost your skills by digging into our comprehensive video library.
+  - Cadastro e login de usuários com autenticação segura.
+  - Recuperação de senha via e-mail.
+  - Atualização de perfil e informações do usuário.
 
-## Laravel Sponsors
+- **💈 Gerenciamento de Barbearias**
 
-We would like to extend our thanks to the following sponsors for funding Laravel development. If you are interested in becoming a sponsor, please visit the [Laravel Partners program](https://partners.laravel.com).
+  - Cadastro e gerenciamento de barbearias.
+  - Listagem de barbearias associadas ao usuário autenticado.
+  - Atualização, exclusão e visualização de barbearias.
 
-### Premium Partners
+- **🛠️ Gerenciamento de Serviços**
 
-- **[Vehikl](https://vehikl.com/)**
-- **[Tighten Co.](https://tighten.co)**
-- **[Kirschbaum Development Group](https://kirschbaumdevelopment.com)**
-- **[64 Robots](https://64robots.com)**
-- **[Curotec](https://www.curotec.com/services/technologies/laravel/)**
-- **[DevSquad](https://devsquad.com/hire-laravel-developers)**
-- **[Redberry](https://redberry.international/laravel-development/)**
-- **[Active Logic](https://activelogic.com)**
+  - Criação, atualização, exclusão e listagem de serviços de barbearia.
+  - Definição do preço e duração dos serviços.
 
-## Contributing
+- **⏰ Gerenciamento de Horários de Funcionamento**
 
-Thank you for considering contributing to the Laravel framework! The contribution guide can be found in the [Laravel documentation](https://laravel.com/docs/contributions).
+  - Definição dos horários de funcionamento das barbearias.
+  - Criação, atualização e exclusão de horários de funcionamento.
+  - Validação de disponibilidade de horários para agendamento.
 
-## Code of Conduct
+- **📅 Gerenciamento de Agendamentos**
 
-In order to ensure that the Laravel community is welcoming to all, please review and abide by the [Code of Conduct](https://laravel.com/docs/contributions#code-of-conduct).
+  - Criação, listagem, atualização e exclusão de agendamentos.
+  - Visualização de disponibilidade de horários de acordo com os horários de funcionamento.
+  - Verificação de conflitos de agendamentos.
+  - Status dos agendamentos: pendente, confirmado, cancelado.
 
-## Security Vulnerabilities
+- **🔐 Autenticação e Segurança**
 
-If you discover a security vulnerability within Laravel, please send an e-mail to Taylor Otwell via [taylor@laravel.com](mailto:taylor@laravel.com). All security vulnerabilities will be promptly addressed.
+  - Middleware de autenticação (`auth:sanctum`) para proteger rotas.
+  - Controle de permissões para garantir que os usuários possam acessar apenas seus agendamentos e barbearias.
+  - Verificação de e-mail para novos usuários.
 
-## License
+---
 
-The Laravel framework is open-sourced software licensed under the [MIT license](https://opensource.org/licenses/MIT).
+## 🖥️ Tecnologias Utilizadas
+
+Este projeto foi desenvolvido com as seguintes tecnologias:
+
+- **PHP** como linguagem principal.
+- **Laravel** como framework para construção da API.
+- **Sanctum** para autenticação baseada em tokens.
+
+## 📦 Pré-requisitos
+
+Para rodar o projeto localmente, você precisará das seguintes ferramentas instaladas:
+
+- **Git**
+- **PHP** (versão 8.0 ou superior)
+- **Composer** para gerenciar dependências do PHP
+
+---
+
+## 🚀 Como Usar
+
+Siga os passos abaixo para configurar e rodar o projeto localmente:
+
+```bash
+# Clone o repositório
+git clone git@github.com:LucasCavalheri/barbershop-api.git
+
+# Entre no diretório do projeto
+cd barbershop-api
+
+# Instale as dependências do PHP
+composer install
+
+# Configure o arquivo .env com suas credenciais
+# (banco de dados, etc.)
+cp .env.example .env
+
+# Gere a chave da aplicação
+php artisan key:generate
+
+# Execute as migrações para criar o banco de dados
+php artisan migrate
+
+# Inicie o servidor local
+php artisan serve
+```
+
+A API estará disponível em `http://localhost:8000/api`.
+
+---
+
+## 🛠️ Endpoints Principais
+
+Aqui estão alguns dos principais endpoints da API:
+
+- **Autenticação**
+
+  - `POST /register` - Registrar um novo usuário
+  - `POST /login` - Fazer login
+  - `POST /logout` - Fazer logout
+
+- **Barbearias**
+
+  - `POST /barbershops` - Criar uma nova barbearia
+  - `GET /barbershops` - Listar todas as barbearias
+  - `GET /barbershops/{id}` - Obter detalhes de uma barbearia
+  - `PUT /barbershops/{id}` - Atualizar uma barbearia
+  - `DELETE /barbershops/{id}` - Deletar uma barbearia
+
+- **Serviços**
+
+  - `POST /services` - Criar um novo serviço
+  - `GET /services` - Listar todos os serviços
+  - `GET /services/{id}` - Obter detalhes de um serviço
+  - `PUT /services/{id}` - Atualizar um serviço
+  - `DELETE /services/{id}` - Deletar um serviço
+
+- **Horários de Funcionamento**
+
+  - `POST /opening-hours` - Definir horários de funcionamento para uma barbearia
+  - `GET /opening-hours` - Listar os horários de funcionamento
+  - `PUT /opening-hours/{id}` - Atualizar horários de funcionamento
+  - `DELETE /opening-hours/{id}` - Deletar horários de funcionamento
+
+- **Agendamentos**
+
+  - `POST /appointments` - Criar um agendamento
+  - `GET /appointments` - Listar todos os agendamentos do usuário
+  - `GET /appointments/{id}` - Obter detalhes de um agendamento
+  - `PUT /appointments/{id}` - Atualizar um agendamento
+  - `DELETE /appointments/{id}` - Deletar um agendamento
+
+---
+
+## 🤝 Contribuições
+
+Contribuições são muito bem-vindas! Siga os passos abaixo para contribuir:
+
+1. Faça um fork do projeto
+2. Crie uma branch para sua feature (`git checkout -b feature/nova-feature`)
+3. Commit suas alterações (`git commit -m 'Adiciona nova feature'`)
+4. Envie para o repositório remoto (`git push origin feature/nova-feature`)
+5. Abra um Pull Request
+
+---
+
+## 📜 Licença
+
+Este projeto está sob a licença MIT. Veja o arquivo LICENSE para mais detalhes.
+
+---
+
+Criado e desenvolvido por **Lucas Cavalheri** 💻
